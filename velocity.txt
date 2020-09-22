@@ -1,0 +1,6 @@
+1.4
+^
+|
+|
+//The best are 0<X<4(only integeres)
+//If you want to channge value SAVE FILE.
