@@ -6,6 +6,8 @@ using namespace std;
 double velocity=0;
 double x,y;
 int horizontal,vertical;
+bool ControlB = false;
+
 void updateCursor(){
     if (GetKeyState(VK_UP) & 0x8000){
         if(y>=0)
@@ -24,8 +26,9 @@ void updateCursor(){
            x+=velocity;
         }
         SetCursorPos(x,y);
+
        // cout<<velocity<<"\n";
-       // cout<<x<<" "<<y<<endl;
+        //cout<<x<<" "<<y<<endl;
 }
 bool IsDouble(const std::string& s)
 {
@@ -33,7 +36,6 @@ bool IsDouble(const std::string& s)
   double temp;
   return ( (i >> temp) ? true : false );
 }
-
 void isRead(){
     fstream file;
     file.open("velocity.txt",ios::in | ios::out);
@@ -54,8 +56,16 @@ void isRead(){
         file.close();
     } else { return;}
 }
-void isChanged(){
-
+void Press(){
+    if((GetKeyState(VK_CONTROL) & 0x8000)&&(GetKeyState('B') & 0x8000)){
+        if(ControlB == false)
+         ControlB = true;
+         else ControlB = false;
+    }
+}
+bool isPressed(){
+    if(ControlB) return true;
+    else return false;
 }
 int main(){
         
@@ -76,7 +86,11 @@ int main(){
     isRead();
     if(velocity==0) { return 0;}
     while(true){
+        if(!isPressed())
         updateCursor();
+
+        isRead();
+        Press();
     }
     
     return 0;

@@ -2,5 +2,5 @@
 ^
 |
 |
-//The best are 0<X<4(only integeres)
+//The best are 0<X<5
 //If you want to channge value SAVE FILE.
