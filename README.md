@@ -1,5 +1,5 @@
 # KeyBoardMouse
-
+To move use: ↑ ↓ → ←
 To set "velocity.txt" file and write in first line speed.
 
 Now, you can start your ow Key Board Mouse.
